@@ -38,6 +38,6 @@ async def alterar_saldo(usuario,quantidade):
         "moedas":moedas_atuais+quantidade
     }}
 
-    usuarios.update_one(filtro,relacao)
+    
 
 
