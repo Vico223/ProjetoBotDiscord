@@ -39,8 +39,27 @@ async def alterar_saldo(usuario,quantidade):
     }}
 
      usuarios.update_one(filtro,relacao)
+async def remover_usuario(usuario):
+    filtro = {"discord_id": usuario.id}
+    resultado = usuarios.delete_one(filtro)
+    
+    if resultado.deleted_count == 1:
+        return True  
+    else:
+        return False  
 
+async def ranking_usuarios():
+   
+    usuarios_ranking = usuarios.find().sort("moedas", pymongo.DESCENDING)
 
+    ranking = []
+
+    for posicao, usuario in enumerate(usuarios_ranking, start=1):
+        discord_id = usuario["discord_id"]
+        moedas = usuario["moedas"]
+        ranking.append({"posicao": posicao, "discord_id": discord_id, "moedas": moedas})
+
+    return ranking
     
 
     
