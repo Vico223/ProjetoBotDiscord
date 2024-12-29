@@ -1,2 +1,3 @@
-# TrabalhoJEOFTON
-Trabalho do professor Jeofton
+# TrabalhoBotDiscord
+BOT de sistema monetario no discord
+
